@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colinas en Armonía - Vibras Positivas HM</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
     <header>
@@ -13,36 +14,57 @@
     </header>
 
     <main>
-        <section id="codigo">
-            <h2>Código de Ética</h2>
-            <ul>
-                <li>✅ Respetar las aceras y pasos peatonales.</li>
-                <li>✅ Mantener la limpieza del sector.</li>
-            </ul>
+        <!-- SECCIÓN EDUCATIVA: INSPIRACIÓN JAPONESA -->
+        <section id="educacion">
+            <h2>Pedagogía de Convivencia</h2>
+            <div class="card-educativa">
+                <h3>🇯🇵 El Arte del Respeto (Omotenashi)</h3>
+                <p>En las sociedades avanzadas, el bienestar común prima sobre el interés individual. No se trata solo de reglas, sino de anticipar cómo nuestras acciones afectan al prójimo.</p>
+            </div>
+            
+            <div class="lecciones">
+                <details>
+                    <summary>💡 ¿Por qué dejar la acera libre?</summary>
+                    <p>La acera es el espacio sagrado del peatón. Al obstruirla, obligas a niños y ancianos a arriesgarse en la calle. Respetar este espacio es un acto de honor hacia tu comunidad.</p>
+                </details>
+                <details>
+                    <summary>🧹 El principio de limpieza y orden</summary>
+                    <p>Mantener el frente de tu casa limpio refleja tu disciplina personal (Shitsuke). Un barrio limpio es un barrio con <strong>Vibras Positivas HM</strong>.</p>
+                </details>
+                <details>
+                    <summary>🤫 Armonía y Silencio</summary>
+                    <p>El silencio es respeto. Evita ruidos innecesarios que perturben la paz del hogar vecino.</p>
+                </details>
+            </div>
         </section>
 
         <section id="reporte">
-            <h2>Reportar Incidencia</h2>
-            <button onclick="enviarReporte()">Reportar Mal Estacionado vía WhatsApp</button>
+            <h2>Cultura de Responsabilidad</h2>
+            <p>Si observas una conducta que rompe la armonía, utiliza este canal con respeto.</p>
+            <button onclick="enviarReporte()">Reportar Incidencia (Con Geoubicación)</button>
         </section>
     </main>
 
     <footer>
         <p>Hecha por Vibras Positivas HM</p>
-        <p>© 2026 - Todos los derechos reservados</p>
+        <p>© 2026 - Todos los derechos de autor reservados</p>
     </footer>
 
+    <script src="app.js"></script>
     <script>
         function enviarReporte() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(position => {
                     const lat = position.coords.latitude;
                     const lon = position.coords.longitude;
-                    const mensaje = `Hola, reporto un vehículo mal estacionado en Colinas del Portal. Mi ubicación: https://www.google.com/maps?q=${lat},${lon}`;
+                    // El mensaje ahora incluye un tono más educativo
+                    const mensaje = `Reporte de Convivencia - Colinas del Portal\nSe observa una obstrucción del espacio público que afecta la movilidad peatonal.\nUbicación exacta: https://www.google.com/maps?q=${lat},${lon}\nActuemos con cultura ciudadana.`;
                     window.open(`https://wa.me/3117700431?text=${encodeURIComponent(mensaje)}`);
+                }, () => {
+                    alert("Para promover la cultura ciudadana, necesitamos tu ubicación para el reporte.");
                 });
             } else {
-                alert("La geolocalización es necesaria para el reporte.");
+                alert("La geolocalización es necesaria para este trámite.");
             }
         }
     </script>
