@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colinas en Armonía - Vibras Positivas HM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Colinas del Portal</h1>
+        <p>Hacia una cultura de respeto total</p>
+    </header>
+
+    <main>
+        <section id="codigo">
+            <h2>Código de Ética</h2>
+            <ul>
+                <li>✅ Respetar las aceras y pasos peatonales.</li>
+                <li>✅ Mantener la limpieza del sector.</li>
+            </ul>
+        </section>
+
+        <section id="reporte">
+            <h2>Reportar Incidencia</h2>
+            <button onclick="enviarReporte()">Reportar Mal Estacionado vía WhatsApp</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>Hecha por Vibras Positivas HM</p>
+        <p>© 2026 - Todos los derechos reservados</p>
+    </footer>
+
+    <script>
+        function enviarReporte() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+                    const mensaje = `Hola, reporto un vehículo mal estacionado en Colinas del Portal. Mi ubicación: https://www.google.com/maps?q=${lat},${lon}`;
+                    window.open(`https://wa.me/573000000000?text=${encodeURIComponent(mensaje)}`);
+                });
+            } else {
+                alert("La geolocalización es necesaria para el reporte.");
+            }
+        }
+    </script>
+</body>
+</html>
